@@ -1,0 +1,31 @@
+---
+layout: page
+title: Perfil
+permalink: /perfil/
+skills:
+  - name: HTML
+    perc: 80
+    color: yellow
+  - name: CSS
+    perc: 60
+    color: blue
+  - name: Javascript
+    perc: 40
+    color: green
+  - name: PHP
+    perc: 40
+    color: red
+  - name: Angular
+    perc: 60
+    color: grey
+---
+
+
+<h3 style="margin-bottom:0;">Desenvolvimento Web</h3>
+
+{% for skill in page.skills %}
+	<div class="skillname"><p>{{ skill['name'] }}</p></div>
+	<div class="skillbar">
+		<div class="skills p{{ skill['perc'] }} bg-{{ skill['color'] }}	">&nbsp;</div>
+	</div>
+{% endfor %}

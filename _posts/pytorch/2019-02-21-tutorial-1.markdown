@@ -1,0 +1,7 @@
+---
+layout: post
+title: "Pytorch - Introdução"
+categories: pytorch
+---
+
+Conteúdo

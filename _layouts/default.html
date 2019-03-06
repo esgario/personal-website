@@ -17,40 +17,63 @@
 	<body>
 
 		<!-- Header -->
-			<section id="header">
-				  <header>
-				{% include header.html %}
-				</header>
-				
-				{% if page.title == 'Home' %}
+		<section id="header">
+			
+			<header>
+			{% include header.html %}
+			</header>
+			
+			{% if page.title == 'Home' %}
 				<nav id="nav">
-				  {% include nav.html %}
+					<ul>
+						<li><a href="#one" class="active">Boas vindas!</a></li>
+						<li><a href="#two">Perfil</a></li>
+						<li><a href="#three">Pesquisa</a></li>
+						<li><a href="#four">Artigos e Tutoriais</a></li>
+					</ul>
 				</nav>
-				{% else %}
+			{% elsif page.title == 'Artigos' %}
 				<nav id="nav">
-				  {% include nav-tuto.html %}
-				</nav>
-				{% endif %}
+			  		<ul>
+			    		<li><a href="#one" class="active">Artigos</a></li>
+			    		<li><a href="#two">Tutoriais</a></li>
+				    	<li><a href="/">Voltar</a></li>
+			  		</ul>
+		  		</nav>
+	  		{% else %}
+	  			<nav id="nav">
+	  				<ul>
+	  					<li><a class="active">{{page.title}}</a></li>
+	  					<li><a href="/artigos-tutoriais">Voltar</a></li>
+	  				</ul>
+	  			</nav>
+			{% endif %}
 
-				<footer>
-				{% include social-links.html %}
-				</footer>
-			</section>
+			<footer>
+			{% include social-links.html %}
+			</footer>
+		</section>
 
 		<!-- Wrapper -->
-			<div id="wrapper">
+		<div id="wrapper">
 
-				{{ content }}
+			{{ content }}
 
-				<!-- Footer -->
-					<section id="footer">
-					{% include footer.html %}	
-					</section>
+			<!-- Footer -->
+			<section id="footer">
+			{% include footer.html %}	
+			</section>
 
-			</div>
+		</div>
 
 		<!-- Scripts -->
-			{%include script.html %}
+		<script src="/assets/js/jquery.min.js"></script>
+		<script src="/assets/js/jquery.scrollzer.min.js"></script>
+		<script src="/assets/js/jquery.scrolly.min.js"></script>
+		<script src="/assets/js/skel.min.js"></script>
+		<script src="/assets/js/util.js"></script>
+		<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+		<script src="/assets/js/main.js"></script>
 
 	</body>
 </html>

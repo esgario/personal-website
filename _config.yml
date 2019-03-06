@@ -4,6 +4,8 @@ author: Guilherme Esgario
 work:  Mestrando em Informática
 year: 2019
 
+url: http://guilhermeesgario.com.br
+
 #Build settings
 markdown: kramdown
 permalink: /:categories/:title

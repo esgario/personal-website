@@ -1,7 +1,9 @@
 <div class="container">
-    <h3>Tutoriais</h3>
-      <!--<ul>
-        {% for post in site.posts limit:3 %}
+  <h3>Tutoriais</h3>
+    <ul>
+      {% for post in site.posts %}
+        {% if post.categories contains 'Tutoriais' %}
+          
           <li style="margin-bottom: 10px;">
 
             <a href="{{ post.url | relative_url }}">
@@ -12,7 +14,8 @@
             <span class="post-meta">({{ post.date | date: date_format }})</span>
 
           </li>
-        {% endfor %}
-      </ul>-->
 
+        {% endif %}
+      {% endfor %}
+    </ul>
 </div>

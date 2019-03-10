@@ -1,7 +1,114 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-03-09T17:26:01-03:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Guilherme Esgario</title><author><name>Guilherme Esgario</name></author><entry><title type="html">Introdução ao Pytorch!</title><link href="http://localhost:4000/tutoriais/introduction-to-pytorch" rel="alternate" type="text/html" title="Introdução ao Pytorch!" /><published>2019-03-01T19:49:16-03:00</published><updated>2019-03-01T19:49:16-03:00</updated><id>http://localhost:4000/tutoriais/introduction-to-pytorch</id><content type="html" xml:base="http://localhost:4000/tutoriais/introduction-to-pytorch">&lt;h3 id=&quot;introdução-ao-pytorch&quot;&gt;Introdução ao Pytorch&lt;/h3&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-03-10T19:39:50-03:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Guilherme Esgario</title><author><name>Guilherme Esgario</name></author><entry><title type="html">Introdução ao PyTorch!</title><link href="http://localhost:4000/tutoriais/introduction-to-pytorch" rel="alternate" type="text/html" title="Introdução ao PyTorch!" /><published>2019-03-10T12:00:00-03:00</published><updated>2019-03-10T12:00:00-03:00</updated><id>http://localhost:4000/tutoriais/introduction-to-pytorch</id><content type="html" xml:base="http://localhost:4000/tutoriais/introduction-to-pytorch">&lt;h2 id=&quot;introdução-ao-pytorch&quot;&gt;Introdução ao PyTorch&lt;/h2&gt;
 
-&lt;p&gt;Texto qualquer&lt;/p&gt;
+&lt;h4 id=&quot;o-que-é-o-pytorch&quot;&gt;O que é o PyTorch?&lt;/h4&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/images/modelo-cnn.png&quot; alt=&quot;image-title-here&quot; class=&quot;image&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;PyTorch é basicamente uma biblioteca desenvolvida em python baseada no Torch que foi originalmente desenvolvido em Lua cuja finalidade é facilitar o desenvolvimento de aplicações de aprendizado de máquina. Uma vez que os algoritmos de aprendizado de máquina têm se tornado mais complexos, perder tempo com a programação ao invés de se preocupar com a arquitetura do modelo a ser desenvolvido não é algo desejável. Por isso, bibliotecas como PyTorch e Tensorflow foram desenvolvidas para ajudar a nós a programarmos sistema baseados em aprendizado de máquina de forma mais eficiente.&lt;/p&gt;
 
-&lt;p&gt;Texto qualquer&lt;/p&gt;</content><author><name>Guilherme Esgario</name></author><summary type="html">Introdução ao Pytorch</summary></entry></feed>
+&lt;h4 id=&quot;por-que-usar-o-pytorch&quot;&gt;Por que usar o PyTorch?&lt;/h4&gt;
+
+&lt;p&gt;O PyTorch foi desenvolvido pelo Facebook e é utilizado por grandes empresas como o Uber. A principal diferença entre o PyTorch e o Tensorflow é que o primeiro pode ser entendido como um framework do tipo ‘Definir-pela-execução’ e o segundo ‘Definir-e-executar’, ou seja, os grafos em PyTorch vão sendo definidos durante a execução do código dando uma sensação mais natural de se codificar, diferente do Tensorflow que primeiro define-se o grafo pra só depois executá-lo.&lt;/p&gt;
+
+&lt;h3 id=&quot;instalação&quot;&gt;Instalação&lt;/h3&gt;
+
+&lt;p&gt;Sem mais blá blá blá, vamos então instalar o PyTorch para podermos programar.&lt;/p&gt;
+
+&lt;p&gt;Os passos para instalação podem ser visualizados &lt;a href=&quot;https://pytorch.org/get-started&quot;&gt;aqui&lt;/a&gt;. No entanto, eu vou descrever de forma simplificada os passos que eu realizei para instalar no meu computador. Os passos descritos aqui são para Linux mas a instalação em outros SO’s é bastante simples também.&lt;/p&gt;
+
+&lt;p&gt;A instalação consiste em 3 passos:&lt;/p&gt;
+
+&lt;h4 id=&quot;1-instalar-o-python&quot;&gt;1. Instalar o Python&lt;/h4&gt;
+
+&lt;p&gt;Muito provavelmente já deve vir na sua instalação do linux, caso contrário, instale. A recomendação pelo site do pytorch é usar o python 3. Para isso, execute os comandos abaixo:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ sudo apt-get update
+$ sudo apt-get install python3.6
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h4 id=&quot;2-instalar-o-gerenciador-de-pacote&quot;&gt;2. Instalar o gerenciador de pacote.&lt;/h4&gt;
+
+&lt;p&gt;Você Pode utilizado tanto Anaconda quanto o Pip, particularmente, recomendo utilizar o Anaconda. Para instala-lo basta:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ cd /tmp
+$ curl -O https://repo.anaconda.com/archive/Anaconda3-5.2.0-Linux-x86_64.sh
+$ sh Anaconda3-5.2.0-Linux-x86_64.sh
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Durante o processo de instalação você deverá:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Aceitar os termos.&lt;/li&gt;
+  &lt;li&gt;Definir o local de instalação.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;3-instalar-o-pytorch&quot;&gt;3. Instalar o PyTorch&lt;/h4&gt;
+
+&lt;p&gt;Os comandos abaixo levam em consideração que tenha instalado o Anaconda como gerenciador de pacotes. Caso você possua acesso a uma GPU e ao CUDA, a instalação pode ser realizada pelo seguinte comando:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ conda install pytorch torchvision cudatoolkit=9.0 -c pytorch
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Para utilizar apenas a CPU pode utilizado o comando abaixo:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ conda install pytorch-cpu torchvision-cpu -c pytorch
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;primeiros-passos-no-pytorch&quot;&gt;Primeiros passos no PyTorch&lt;/h3&gt;
+
+&lt;p&gt;O conceito básico do PyTorch gira em torno dos Tensores. Um tensor pode ser entendido como uma generalização de matrizes, logo, tensores são por naturezas matrizes de N dimensões. Criar tensores com PyTorch é tão simples quanto em Numpy.&lt;/p&gt;
+
+&lt;p&gt;Primeiro vamos importar nossa biblioteca:&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;torch&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Podemos criar um tensores da seguinte forma:&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# vetor
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;v_data&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;1.&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;2.&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;3.&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;4.&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;5.&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;v&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;torch&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tensor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;v_data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;v&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# matriz
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;m_data&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[[&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;1.&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;1.5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;2.&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;3.&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;3.5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]]&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;m&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;torch&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tensor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;m_data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;m&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Output:
+&amp;gt;&amp;gt; tensor([1., 2., 3., 4., 5.])
+&amp;gt;&amp;gt; tensor([[1., 1.5, 2.],
+           [3., 3.5, 4.]])
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Operações com tensores são realizadas de forma simples e intuitiva, por exemplo:&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;torch&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;manual_seed&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;torch&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rand&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;torch&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ones&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# Soma de dois tensores
+&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# Subtração de dois tensores
+&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# Somatório dos valores de um tensor
+&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# Maior valor de um tensor
+&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;max&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Output:
+&amp;gt;&amp;gt; tensor([[0.7576, 0.2793],
+           [0.4031, 0.7347]])
+&amp;gt;&amp;gt; tensor([[1., 1.],
+           [1., 1.]])
+&amp;gt;&amp;gt; tensor([[1.7576, 1.2793],
+           [1.4031, 1.7347]])
+&amp;gt;&amp;gt; tensor([[-0.2424, -0.7207],
+           [-0.5969, -0.2653]])
+&amp;gt;&amp;gt; tensor(2.1747)
+&amp;gt;&amp;gt; tensor(0.7576)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Guilherme Esgario</name></author><summary type="html">Introdução ao PyTorch</summary></entry></feed>

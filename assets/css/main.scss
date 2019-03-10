@@ -4,6 +4,7 @@
 
 $main-color: #900808;
 
+@import "syntax-highlighting";
 @import url("fontawesome.min.css");
 @import url("https://fonts.googleapis.com/css?family=Lato:400,400italic,700,700italic|Source+Code+Pro:400");
 
@@ -1593,11 +1594,19 @@ $main-color: #900808;
 	}
 
 	p {
-		margin: 0 0 2.25em 0;
+		margin: 0 0 1.25em 0;
+		color: #111;
 	}
 
-	h1, h2, h3, h4, h5, h6 {
+	h1, h2, h3 {
 		color: $main-color;
+		font-weight: 700;
+		line-height: 1em;
+		margin: 0 0 0.5625em 0;
+	}
+
+	h4, h5, h6 {
+		color: #111;
 		font-weight: 700;
 		line-height: 1em;
 		margin: 0 0 0.5625em 0;
@@ -1664,9 +1673,9 @@ $main-color: #900808;
 	}
 
 	code {
-		background: #555;
+		background: #eee;
 		border-radius: 5px;
-		color: #fff;
+		color: #111;
 		font-family: "Source Code Pro", monospace;
 		font-size: 0.9em;
 		margin: 0 0.25em;
@@ -2431,6 +2440,13 @@ $main-color: #900808;
 		}
 
 		.features article .image {
+			display: inline-block;
+			padding-right: 2.5em;
+			vertical-align: middle;
+			width: 50%;
+		}
+
+		.features article .image-full {
 			display: inline-block;
 			padding-right: 2.5em;
 			vertical-align: middle;

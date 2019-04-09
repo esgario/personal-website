@@ -4,7 +4,7 @@
 
 $main-color: #900808;
 
-@import "syntax-highlighting";
+@import url("highlighting.css");
 @import url("fontawesome.min.css");
 @import url("https://fonts.googleapis.com/css?family=Lato:400,400italic,700,700italic|Source+Code+Pro:400");
 
@@ -23,6 +23,10 @@ $main-color: #900808;
 		font-size: 100%;
 		font: inherit;
 		vertical-align: baseline;
+	}
+
+	p {
+		text-align: justify;
 	}
 
 	article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
@@ -1673,9 +1677,9 @@ $main-color: #900808;
 	}
 
 	code {
-		background: #eee;
+		background: #222;
 		border-radius: 5px;
-		color: #111;
+		color: #eee;
 		font-family: "Source Code Pro", monospace;
 		font-size: 0.9em;
 		margin: 0 0.25em;

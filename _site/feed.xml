@@ -1,14 +1,43 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-03-21T20:31:17-03:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Guilherme Esgario</title><author><name>Guilherme Esgario</name></author><entry><title type="html">Clusterização de dados</title><link href="http://localhost:4000/artigos/data-clustering" rel="alternate" type="text/html" title="Clusterização de dados" /><published>2019-03-16T12:00:00-03:00</published><updated>2019-03-16T12:00:00-03:00</updated><id>http://localhost:4000/artigos/data-clustering</id><content type="html" xml:base="http://localhost:4000/artigos/data-clustering">&lt;h2 id=&quot;clusterização-de-dados&quot;&gt;Clusterização de dados&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-04-09T09:10:17-03:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Guilherme Esgario</title><subtitle>Olá meu nome é Guilherme Esgario e este é meu site pessoal.</subtitle><author><name>Guilherme Esgario</name></author><entry><title type="html">Clusterização de dados</title><link href="http://localhost:4000/artigos/data-clustering" rel="alternate" type="text/html" title="Clusterização de dados" /><published>2019-03-16T12:00:00-03:00</published><updated>2019-03-16T12:00:00-03:00</updated><id>http://localhost:4000/artigos/data-clustering</id><content type="html" xml:base="http://localhost:4000/artigos/data-clustering">&lt;h2 id=&quot;clusterização-de-dados&quot;&gt;Clusterização de dados&lt;/h2&gt;
 
 &lt;h4 id=&quot;introdução&quot;&gt;Introdução&lt;/h4&gt;
 
-&lt;p&gt;Clusterização ou aprendizado não supervisionado, é uma das técnicas mais importantes em análise de dados [1]. Técnicas de clusterização buscam encontrar padrões naturais inerentes aos dados, agrupando dados não rotulados em grupos homogêneos, chamados de Cluster. Dados de um mesmo cluster são mais similares entre eles e menos similares em relação a dados de outros clusters.&lt;/p&gt;
+&lt;p&gt;Clusterização ou aprendizado não supervisionado, é uma das técnicas mais importantes em análise de dados [1]. Técnicas de clusterização buscam encontrar padrões naturais inerentes aos dados, agrupando dados não rotulados em grupos homogêneos, chamados de Clusters. Dados de um mesmo cluster são mais similares entre si e menos similares em relação a dados de outros clusters.&lt;/p&gt;
 
 &lt;p&gt;As técnicas de clusterização tem sido amplamente aplicadas nas áreas de mineração de dados, segmentação de imagens, reconhecimento de padrões, pesquisa de mercado, etc. [2].&lt;/p&gt;
 
 &lt;p&gt;Abordagens tradicionais de clusterização são divididas em dois grupos principais: algoritmos hierárquicos e algoritmos de partição. Algoritmos hierárquicos são capazes de encontrar clusters aninhados de modo aglomerativo, de maneira que os pontos de dados mais similares são fundidos recursivamente até formar uma hierarquia de clusters, e divisivo onde todos os dados começam em um mesmo cluster e então são divididos recursivamente em clusters menores. Algoritmos de partição encontram simultaneamente todas as partições de dados sem impor qualquer estrutura hierárquica [1]. Dentre os métodos mais comuns de algoritmos de partição temos: K-Means, Mean-Shift, DBScan e Expectation-Maximization usando modelos de misturas gaussianas.&lt;/p&gt;
 
 &lt;p&gt;Dentre todas as abordagens de clusterização, a mais difundida e utilizada, mas, não necessariamente a melhor, é o K-Means. O K-Means é um algoritmo simples e que em termos gerais funciona razoavelmente bem para muitas aplicações. Neste artigo pretendo explicar o conceito de funcionamento do K-Means, seu comportamento em algumas bases de dados e como poderíamos estimar automaticamente o número de cluster uma vez que este método exige como entrada um número definido de cluster.&lt;/p&gt;
+
+&lt;h4 id=&quot;k-means&quot;&gt;K-Means&lt;/h4&gt;
+
+&lt;p&gt;O método K-Means foi proposto por MacQueen em 1967. Consiste em inicializar um conjunto de K centroides (ou protótipos) que caracterizam o conjunto de dados. Os dados são atribuídos ao centróide mais próximo baseado em alguma medida de distância (Euclidiana é a mais comum). O objetivo do método é minimizar a função da soma dos erros quadráticos (Eq.1) através da atualização dos centróides (Eq.2) de forma iterativa até que seja alcançado um critério de convergência.&lt;/p&gt;
+
+&lt;p style=&quot;text-align: center&quot;&gt;
+&lt;script type=&quot;math/tex&quot;&gt;J = \sum^k_{i=1}{\sum_{x \in C_i}{||x - \mu(C_i)||^2}}&lt;/script&gt;
+&lt;span style=&quot;float: right&quot;&gt;(1)&lt;/span&gt;
+&lt;/p&gt;
+
+&lt;p&gt;onde &lt;script type=&quot;math/tex&quot;&gt;k&lt;/script&gt; é número total de clusters, &lt;script type=&quot;math/tex&quot;&gt;\mu(C_i)&lt;/script&gt; é o centroide do cluster &lt;script type=&quot;math/tex&quot;&gt;C_i&lt;/script&gt; e &lt;script type=&quot;math/tex&quot;&gt;\vert \vert x - \mu(C_i)\vert \vert^2&lt;/script&gt; calcula a distância entre a amostra &lt;script type=&quot;math/tex&quot;&gt;x&lt;/script&gt; e o centróide &lt;script type=&quot;math/tex&quot;&gt;\mu(C_i)&lt;/script&gt; ao qual ela pertence (está mais próxima).&lt;/p&gt;
+
+&lt;p style=&quot;text-align: center&quot;&gt;
+&lt;script type=&quot;math/tex&quot;&gt;\mu(C_i) = \frac{1}{n_i} \sum_{x \in C_i}{x}&lt;/script&gt;
+&lt;span style=&quot;float: right&quot;&gt;(2)&lt;/span&gt;
+&lt;/p&gt;
+
+&lt;p&gt;&lt;script type=&quot;math/tex&quot;&gt;n_i&lt;/script&gt; é o número total de amostras &lt;script type=&quot;math/tex&quot;&gt;x&lt;/script&gt; pertencentes ao centróide &lt;script type=&quot;math/tex&quot;&gt;C_i&lt;/script&gt;.&lt;/p&gt;
+
+&lt;p&gt;O pseudo-código pode ser visualizado logo abaixo:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Pseudo-código: K-Means
+ &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;1&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; Inicializar K centróides representando o grupo de clusters inicial.
+ &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;2&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; Atribui cada objeto ao centróide mais próximo.
+ &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;3&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; Recalcular a posição dos centróides de acordo com a eq. &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;2&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt;
+ &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;4&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; Repetir os passos &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;2&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; e &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;3&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; até alcançar um critério de convergência.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Os centróides podem ser inicializados de maneira aleatória em um espaço de busca pré-delimitado ou tomando amostras aleatórias (protótipos) como seu ponto de partida.&lt;/p&gt;
 
 &lt;p&gt;[1] JAIN, Anil K. Data clustering: 50 years beyond K-means. Pattern recognition letters, v. 31, n. 8, p. 651-666, 2010.&lt;/p&gt;
 
@@ -74,7 +103,7 @@ $ sh Anaconda3-5.2.0-Linux-x86_64.sh
 &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;torch&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;Podemos criar um tensores da seguinte forma:&lt;/p&gt;
+&lt;p&gt;Podemos criar tensores da seguinte forma:&lt;/p&gt;
 
 &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# vetor
 &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;v_data&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;1.&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;2.&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;3.&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;4.&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;5.&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
@@ -96,10 +125,12 @@ $ sh Anaconda3-5.2.0-Linux-x86_64.sh
 
 &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;torch&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;manual_seed&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 
-&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;torch&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rand&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# Cria um tensor 2x2 com valores aleatórios
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;torch&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rand&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 
-&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;torch&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ones&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# Cria um tensor 2x2 com todos os valores iguais a 1
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;torch&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ones&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 
 &lt;span class=&quot;c1&quot;&gt;# Soma de dois tensores
@@ -125,4 +156,40 @@ $ sh Anaconda3-5.2.0-Linux-x86_64.sh
            [-0.5969, -0.2653]])
 &amp;gt;&amp;gt; tensor(2.1747)
 &amp;gt;&amp;gt; tensor(0.7576)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Tensores podem ser remodelados facilmente:&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;torch&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;manual_seed&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;t&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;torch&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rand&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;view&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;8&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;view&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Output:
+&amp;gt;&amp;gt; tensor([[0.7576, 0.2793],
+          [0.4031, 0.7347],
+          [0.0293, 0.7999],
+          [0.3971, 0.7544]])
+&amp;gt;&amp;gt; tensor([[0.7576, 0.2793, 0.4031, 0.7347, 0.0293, 0.7999, 0.3971, 0.7544]])
+&amp;gt;&amp;gt; tensor([[0.7576, 0.2793, 0.4031, 0.7347],
+          [0.0293, 0.7999, 0.3971, 0.7544]])
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Conversão entre numpy array e tensores:&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;numpy&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;np_array&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ones&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;t&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;torch&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;from_numpy&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;np_array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;t&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;numpy&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Output:
+&amp;gt;&amp;gt; &amp;lt;class 'torch.Tensor'&amp;gt;
+&amp;gt;&amp;gt; &amp;lt;class 'numpy.ndarray'&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Guilherme Esgario</name></author><summary type="html">Introdução ao PyTorch</summary></entry></feed>

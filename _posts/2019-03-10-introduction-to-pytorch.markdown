@@ -70,7 +70,7 @@ Primeiro vamos importar nossa biblioteca:
 import torch
 ```
 
-Podemos criar um tensores da seguinte forma:
+Podemos criar tensores da seguinte forma:
 
 ```python
 # vetor
@@ -95,9 +95,11 @@ Operações com tensores são realizadas de forma simples e intuitiva, por exemp
 ```python
 torch.manual_seed(1)
 
+# Cria um tensor 2x2 com valores aleatórios
 x = torch.rand(2, 2)
 print(x)
 
+# Cria um tensor 2x2 com todos os valores iguais a 1
 y = torch.ones(2, 2)
 print(y)
 
@@ -125,4 +127,44 @@ Output:
            [-0.5969, -0.2653]])
 >> tensor(2.1747)
 >> tensor(0.7576)
+```
+
+Tensores podem ser remodelados facilmente:
+
+```python
+torch.manual_seed(1)
+
+t = torch.rand(4,2)
+print(t)
+print(t.view(1,8))
+print(t.view(2,-1))
+```
+```
+Output:
+>> tensor([[0.7576, 0.2793],
+          [0.4031, 0.7347],
+          [0.0293, 0.7999],
+          [0.3971, 0.7544]])
+>> tensor([[0.7576, 0.2793, 0.4031, 0.7347, 0.0293, 0.7999, 0.3971, 0.7544]])
+>> tensor([[0.7576, 0.2793, 0.4031, 0.7347],
+          [0.0293, 0.7999, 0.3971, 0.7544]])
+```
+
+Conversão entre numpy array e tensores:
+
+```python
+import numpy as np
+
+np_array = np.ones((2, 2))
+
+t = torch.from_numpy(np_array)
+print(t)
+
+t = t.numpy()
+print(t)
+```
+```
+Output:
+>> <class 'torch.Tensor'>
+>> <class 'numpy.ndarray'>
 ```

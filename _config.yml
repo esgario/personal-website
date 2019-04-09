@@ -10,6 +10,8 @@ url: http://guilhermeesgario.com.br
 markdown: kramdown
 permalink: /:categories/:title
 
+description: Olá meu nome é Guilherme Esgario e este é meu site pessoal.
+
 # Social Links
 #facebook: username
 #twitter:  username

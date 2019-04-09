@@ -9,12 +9,35 @@
 		{% include analytics.html %}
 
 		<title>{{site.title}}</title>
+		
 		<meta charset="utf-8" />
+	    <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
+	    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		
+		{% if page.excerpt %}
+	    <meta name="description" content="{{ page.excerpt| strip_html }}" />
+	    <meta property="og:description" content="{{ page.excerpt| strip_html }}" />
+	    {% else %}
+	    <meta name="description" content="{{ site.description }}">
+	    <meta property="og:description" content="{{ site.description }}" />
+	    {% endif %}
+	    <meta name="author" content="{{ site.name }}" />
+
+	    {% if page.title %}
+	    <meta property="og:title" content="{{ page.title }}" />
+	    <meta property="twitter:title" content="{{ page.title }}" />
+	    {% endif %}
+
 		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
 		<link rel="stylesheet" href="{{ "/assets/css/main.css" | relative_url }}" />
 		<link rel="stylesheet" href="{{ "/assets/css/mystyles.css" | relative_url }}" />
 		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+
+		<!-- Mathjax Support -->
+		<script type="text/javascript" async
+		  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+		</script>
 	</head>
 	<body>
 
@@ -45,7 +68,7 @@
 	  		{% else %}
 	  			<nav id="nav">
 	  				<ul>
-	  					<li><a class="active">{{page.title}}</a></li>
+	  					<li><a href="#one" class="active">{{page.title}}</a></li>
 	  					<li><a href="/artigos-tutoriais">Voltar</a></li>
 	  				</ul>
 	  			</nav>

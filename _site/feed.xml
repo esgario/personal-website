@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-04-09T09:14:45-03:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Guilherme Esgario</title><subtitle>Olá meu nome é Guilherme Esgario e este é meu site pessoal.</subtitle><author><name>Guilherme Esgario</name></author><entry><title type="html">Clusterização de dados</title><link href="http://localhost:4000/artigos/data-clustering" rel="alternate" type="text/html" title="Clusterização de dados" /><published>2019-03-16T12:00:00-03:00</published><updated>2019-03-16T12:00:00-03:00</updated><id>http://localhost:4000/artigos/data-clustering</id><content type="html" xml:base="http://localhost:4000/artigos/data-clustering">&lt;h2 id=&quot;clusterização-de-dados&quot;&gt;Clusterização de dados&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-05-14T19:26:02-03:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Guilherme Esgario</title><subtitle>Olá meu nome é Guilherme Esgario e este é meu site pessoal.</subtitle><author><name>Guilherme Esgario</name></author><entry><title type="html">Clusterização de dados</title><link href="http://localhost:4000/artigos/data-clustering" rel="alternate" type="text/html" title="Clusterização de dados" /><published>2019-03-16T12:00:00-03:00</published><updated>2019-03-16T12:00:00-03:00</updated><id>http://localhost:4000/artigos/data-clustering</id><content type="html" xml:base="http://localhost:4000/artigos/data-clustering">&lt;h2 id=&quot;clusterização-de-dados&quot;&gt;Clusterização de dados&lt;/h2&gt;
 
 &lt;h4 id=&quot;introdução&quot;&gt;Introdução&lt;/h4&gt;
 
@@ -36,6 +36,10 @@
  &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;3&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; Recalcular a posição dos centróides de acordo com a eq. &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;2&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt;
  &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;4&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; Repetir os passos &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;2&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; e &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;3&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; até alcançar um critério de convergência.
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h4 id=&quot;clusterizando-uma-base-de-dados&quot;&gt;Clusterizando uma base de dados&lt;/h4&gt;
+
+&lt;p&gt;Para ilustrar o comportamento do K-Means no processo de agrupamento dos dados, foi selecionado a base X, obtida em Y.&lt;/p&gt;
 
 &lt;p&gt;Os centróides podem ser inicializados de maneira aleatória em um espaço de busca pré-delimitado ou tomando amostras aleatórias (protótipos) como seu ponto de partida.&lt;/p&gt;
 
@@ -89,7 +93,7 @@ $ sh Anaconda3-5.2.0-Linux-x86_64.sh
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ conda install pytorch torchvision cudatoolkit=9.0 -c pytorch
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;Para utilizar apenas a CPU pode utilizado o comando abaixo:&lt;/p&gt;
+&lt;p&gt;Para utilizar apenas a CPU pode utilizar o comando abaixo:&lt;/p&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ conda install pytorch-cpu torchvision-cpu -c pytorch
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;

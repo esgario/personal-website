@@ -46,6 +46,11 @@ Pseudo-código: K-Means
  (4) Repetir os passos (2) e (3) até alcançar um critério de convergência.
 ```	
 
+#### Clusterizando uma base de dados
+
+Para ilustrar o comportamento do K-Means no processo de agrupamento dos dados, foi selecionado a base X, obtida em Y. 
+
+
 Os centróides podem ser inicializados de maneira aleatória em um espaço de busca pré-delimitado ou tomando amostras aleatórias (protótipos) como seu ponto de partida.
 
 [1] JAIN, Anil K. Data clustering: 50 years beyond K-means. Pattern recognition letters, v. 31, n. 8, p. 651-666, 2010.

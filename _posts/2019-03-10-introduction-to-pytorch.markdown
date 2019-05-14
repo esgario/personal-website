@@ -54,7 +54,7 @@ Os comandos abaixo levam em consideração que tenha instalado o Anaconda como g
 $ conda install pytorch torchvision cudatoolkit=9.0 -c pytorch
 ```
 
-Para utilizar apenas a CPU pode utilizado o comando abaixo:
+Para utilizar apenas a CPU pode utilizar o comando abaixo:
 
 ```
 $ conda install pytorch-cpu torchvision-cpu -c pytorch

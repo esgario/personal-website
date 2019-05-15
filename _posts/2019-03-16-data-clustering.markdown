@@ -48,10 +48,61 @@ Pseudo-código: K-Means
 
 #### Clusterizando uma base de dados
 
-Para ilustrar o comportamento do K-Means no processo de agrupamento dos dados, foi selecionado a base X, obtida em Y. 
+Para ilustrar o comportamento do K-Means no processo de agrupamento dos dados, foi selecionada a imagem abaixo como nossa base de dados a ser clusterizada.
 
+![image](/assets/images/coffee-leaf.jpg){: .image-full}
 
-Os centróides podem ser inicializados de maneira aleatória em um espaço de busca pré-delimitado ou tomando amostras aleatórias (protótipos) como seu ponto de partida.
+Uma imagem RGB consiste em uma matriz tri-dimensional com 3 camadas de cores. No entanto, para a clusterização com o K-Means a relação espacial dos pixels pouco importa, logo a imagem RGB pode ser convertida para uma matriz com 3 colunas, sendo cada coluna pertencente a uma cor. A imagem abaixo exemplica esse processo.
+
+![image](/assets/images/rgb-matrix.jpg){: .image-full}
+
+Abaixo segue um código simplificado e comentado sobre a utilização do K-Means na clusterização de imagens.
+
+```python
+# Importa os módulos necessários
+import numpy as np
+from skimage import io
+from sklearn.cluster import KMeans
+import matplotlib.pyplot as plt
+
+# Lê a imagem de entrada
+img = io.imread('folha-de-cafe.jpg')
+
+# Salva dimensões da imagem
+dim = img.shape
+
+# Converte para um vetor bidimensional que será processado pelo kmeans
+data = img.reshape(-1, 3)
+
+# Inicializa o K-Means com 4 clusters e com centróides aleatórios
+kmeans = KMeans(n_clusters=4, init='random')
+
+# Chama o método .fit() para agrupar os dados
+kmeans.fit(data)
+
+# Retorna os rótulos para cada pixel/instância
+labels = kmeans.labels_
+
+# Retorna o valor de cada centroid
+centroids = kmeans.cluster_centers_
+
+# Converte para inteiros entre 0 e 255
+centroids = np.uint8(centroids)
+
+# Substitui os valores dos dados com o valor do centroid a que pertencem
+for i in np.unique(labels):
+    data[np.where(labels == i), :] = centroids[i, :]
+
+# Retorna os dados para a dimensão original
+img = data.reshape(dim)
+
+# Imprime a imagem resultante
+plt.imshow(img)
+```
+
+Como resultado nós obtemos a seguinte imagem após a clusterização com o K-Means:
+
+![image](/assets/images/coffee-leaf-segmented.jpg){: .image-full}
 
 [1] JAIN, Anil K. Data clustering: 50 years beyond K-means. Pattern recognition letters, v. 31, n. 8, p. 651-666, 2010.
 
